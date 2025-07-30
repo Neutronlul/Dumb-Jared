@@ -1,18 +1,13 @@
-export default function loop() {
-  const items = [];
+import Imageapi from "@/app/lib/APIstuff/API-image"
+import Textapi from "@/app/lib/APIstuff/API-text"
+import Api from "@/app/lib/APIstuff/API-image"
 
-  for (let i = 1; i < 20; i++) {
-      items.push(
-      <p key={i} className="text-lg text-blue-700">
-        Number {i}
-      </p>
-    );
-  }
-
+export default async function chartdisplay () {
+    const catfact = await Textapi();
   return (
-    <div className="p-4">
-      <h1 className="text-xl font-bold">Test</h1>
-      {items}
+    <div className="flex my-5">
+      <Imageapi/>
+      <Imageapi/>
     </div>
   );
-}
+};

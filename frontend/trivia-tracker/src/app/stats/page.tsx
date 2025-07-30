@@ -1,13 +1,14 @@
-import api from "../lib/API";
+import Textapi from "../lib/APIstuff/API-text";
+import apifact from "../lib/APIstuff/API-text";
 import RBG from "../lib/background";
 
 export default async function Page() {
-  const catfact = await api();
+  const catfact = await Textapi();
   const items = [];
 
   for (let i = 1; i < 12; i++) {
       items.push(
-        <p key={i} className=" w-150 border-1 border-orange-300 text-3xl antialiased pl-4 bg-linear-to-br from-yellow-200 to-pink-500 rounded-xl m-2">
+        <p key={i} className="shadow w-150 border-1 border-orange-300 text-3xl antialiased pl-4 bg-linear-to-br from-yellow-200 to-pink-500 rounded-xl m-2">
         DumbJared {i}
         </p>
     );
@@ -29,8 +30,9 @@ export default async function Page() {
 
             {/*Past teams lists*/}
             <div className="flex-1">
-                <div className="mt-70">
-                    <h1 className="text-4xl font-bold">Past Trivia Teams</h1> {items}
+                <div className="items-center justify-end relative top-45">
+                    <button className="text-2xl relative left-75 top-9"> test button </button>
+                    <h1 className="text-4xl font-bold ">Past Trivia Teams</h1> {items}
                 </div>
             </div>
 
