@@ -1,5 +1,5 @@
 asgiref==3.9.1
-beautifulsoup4==4.13.4
+beautifulsoup4==4.13.5
 black==25.1.0
 cachetools==5.5.2
 certifi==2025.7.9
