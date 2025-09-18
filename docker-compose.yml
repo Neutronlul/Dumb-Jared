@@ -1,7 +1,21 @@
-version: "3.9"
-
 services:
-  postgresql_db:
+  frontend:
+    image: neutronlul/dumb-jared-frontend:latest
+    depends_on:
+      - backend
+      - cloudflared
+    networks:
+      - internal
+      - external
+
+  backend:
+    image: neutronlul/dumb-jared-backend:latest
+    depends_on:
+      - database
+    networks:
+      - internal
+
+  database:
     image: postgres:latest
     environment:
       POSTGRES_USER: scraper_user
@@ -11,6 +25,30 @@ services:
       - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+    networks:
+      - internal
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    restart: unless-stopped
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN_FILE=/run/secrets/cloudflared_token
+      - NO_AUTOUPDATE=true
+    secrets:
+      - cloudflared_token
+    networks:
+      - external
 
 volumes:
   pgdata:
+
+networks:
+  internal:
+    driver: overlay
+  external:
+    driver: overlay
+
+secrets:
+  cloudflared_token:
+    external: true
