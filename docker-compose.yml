@@ -1,36 +1,33 @@
 services:
-  frontend:
-    image: neutronlul/dumb-jared-frontend:latest
-    depends_on:
-      - backend
-      - cloudflared
-    networks:
-      - internal
-      - external
+  # frontend:
+  #   image: neutronlul/dumb-jared-frontend:latest
+  #   depends_on:
+  #     - backend
+  #     - cloudflared
+  #   networks:
+  #     - internal
+  #     - ingress
 
-  backend:
-    image: neutronlul/dumb-jared-backend:latest
-    depends_on:
-      - database
-    networks:
-      - internal
+  # backend:
+  #   image: neutronlul/dumb-jared-backend:latest
+  #   depends_on:
+  #     - database
+  #   networks:
+  #     - internal
 
-  database:
-    image: postgres:latest
-    environment:
-      POSTGRES_USER: scraper_user
-      POSTGRES_PASSWORD: scraper_pass
-      POSTGRES_DB: scraper_db
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
-    networks:
-      - internal
+  # database:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_USER: scraper_user
+  #     POSTGRES_PASSWORD: scraper_pass
+  #     POSTGRES_DB: scraper_db
+  #   volumes:
+  #     - pgdata:/var/lib/postgresql/data
+  #   networks:
+  #     - internal
 
   cloudflared:
     image: cloudflare/cloudflared:latest
-    restart: unless-stopped
     command: tunnel run
     environment:
       - TUNNEL_TOKEN_FILE=/run/secrets/cloudflared_token
@@ -38,7 +35,7 @@ services:
     secrets:
       - cloudflared_token
     networks:
-      - external
+      - ingress
 
 volumes:
   pgdata:
@@ -46,7 +43,7 @@ volumes:
 networks:
   internal:
     driver: overlay
-  external:
+  ingress:
     driver: overlay
 
 secrets:
