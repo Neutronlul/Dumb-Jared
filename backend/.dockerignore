@@ -32,3 +32,11 @@
 **/values.dev.yaml
 LICENSE
 README.md
+
+# Database
+.database/
+
+# py test
+test.py
+test2.py
+test3.py
