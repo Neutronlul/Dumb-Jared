@@ -10,9 +10,6 @@ Django==5.2.4
 django-filter==25.1
 djangorestframework==3.16.1
 fake-useragent==2.2.0
-google-auth==2.40.3
-google-auth-oauthlib==1.2.2
-gspread==6.2.1
 idna==3.10
 Markdown==3.9
 mypy_extensions==1.1.0
