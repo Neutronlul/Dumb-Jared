@@ -1,7 +1,7 @@
 [project]
 name = "dumbjared-backend"
 version = "0.1.0"
-description = "Add your description here"
+description = "Django backend for Dumb Jared that provides a REST API and handles web scraping."
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
