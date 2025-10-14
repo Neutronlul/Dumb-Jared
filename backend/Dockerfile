@@ -7,8 +7,6 @@ FROM base AS builder
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 ENV UV_COMPILE_BYTECODE=1 UV_LINK_MODE=copy
 
-ARG PYTHON_VERSION=3.12
-
 # Configure the Python directory so it is consistent
 ENV UV_PYTHON_INSTALL_DIR=/python
 
@@ -16,7 +14,8 @@ ENV UV_PYTHON_INSTALL_DIR=/python
 ENV UV_PYTHON_PREFERENCE=only-managed
 
 # Install Python before the project for caching
-RUN uv python install ${PYTHON_VERSION}
+RUN --mount=type=bind,source=.python-version,target=.python-version \
+    uv python install $(cat .python-version)
 
 WORKDIR /app
 RUN --mount=type=cache,target=/root/.cache/uv \
