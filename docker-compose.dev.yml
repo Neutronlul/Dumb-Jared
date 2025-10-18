@@ -13,8 +13,6 @@ services:
         - action: sync
           path: ./frontend
           target: /app
-          ignore:
-            - ./frontend/node_modules/
           initial_sync: true
         - action: rebuild
           path: ./frontend/package.json
