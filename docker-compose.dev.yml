@@ -1,14 +1,19 @@
 services:
-  # frontend:
-  #   build:
-  #     context: ./frontend
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "80:80"
-  #   depends_on:
-  #     backend:
-  #       condition: service_healthy
-
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend-new
+          target: /app
+          initial_sync: true
   backend:
     build:
       context: ./backend
