@@ -8,12 +8,17 @@ services:
     depends_on:
       backend:
         condition: service_started
-    # develop:
-    #   watch:
-    #     - action: sync
-    #       path: ./frontend
-    #       target: /app
-    #       initial_sync: true
+    develop:
+      watch:
+        - action: sync
+          path: ./frontend
+          target: /app
+          ignore:
+            - ./frontend/node_modules/
+          initial_sync: true
+        - action: rebuild
+          path: ./frontend/package.json
+
   backend:
     build:
       context: ./backend
