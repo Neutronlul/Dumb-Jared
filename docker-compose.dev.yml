@@ -4,16 +4,16 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - "80:80"
+      - "3000:3000"
     depends_on:
       backend:
-        condition: service_healthy
-    develop:
-      watch:
-        - action: sync
-          path: ./frontend-new
-          target: /app
-          initial_sync: true
+        condition: service_started
+    # develop:
+    #   watch:
+    #     - action: sync
+    #       path: ./frontend
+    #       target: /app
+    #       initial_sync: true
   backend:
     build:
       context: ./backend
