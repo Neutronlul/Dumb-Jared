@@ -1,4 +1,4 @@
-
+import { Icons } from 'next/dist/lib/metadata/types/metadata-types';
 import Image from 'next/image';
 
 export const MainIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, className= '', ...props }) => {
