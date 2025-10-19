@@ -1,6 +1,4 @@
-import Textapi from "../lib/APIstuff/API-text";
-import apifact from "../lib/APIstuff/API-text";
-import RBG from "../lib/background";
+
 import React from 'react'
 
 type Team = {
@@ -22,9 +20,15 @@ export default async function Page() {
                 <h2 className="antialiased text-3xl pl-4 py-3">Karl</h2>
             {/*Last teams list*/} 
                 <div className="pt-5">
-                    <h1 className="text-4xl font-bold">Last Trivia Teams</h1> 
+                    <h1 className="text-4xl font-bold">Last Week Trivia Teams</h1> 
                 </div>
             </div>
+
+            {/*mobile header*/}
+            
+                <h1 className="block md:hidden bg-orange-200 text-2xl absolute top-25.5 left-2.5 md:top-20 md:left-115 mr-2 ml-2 rounded-md">Statistics</h1>
+            
+
 
             {/*Past teams lists*/}
             <div className="flex-1">

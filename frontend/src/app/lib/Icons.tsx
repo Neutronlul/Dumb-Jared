@@ -6,7 +6,6 @@ export const MainIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, classN
             src="/Dumbjared.png"
             width={60}
             height={60}
-            className="hidden md:block"
             alt="Screenshots of the dashboard project showing desktop version"
         {...props}
     />
@@ -20,7 +19,7 @@ export const HomeIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, classN
             src="/Dumbjared.png"
             width={45}
             height={45}
-            className="hidden md:block"
+            className="md:block"
             alt="Screenshots of the dashboard project showing desktop version"
         {...props}
     />
@@ -33,7 +32,7 @@ export const StatsIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, class
             src="/Dumbjared.png"
             width={45}
             height={45}
-            className="hidden md:block"
+            className="md:block"
             alt="Screenshots of the dashboard project showing desktop version"
         {...props}
     />
@@ -43,10 +42,10 @@ export const StatsIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, class
 export const ChartsIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, className= '', ...props }) => {
   return (
     <Image
-            src="/DumbJared.png"
+            src="/Dumbjared.png"
             width={45}
             height={45}
-            className="hidden md:block"
+            className="md:block"
             alt="Icon"
         {...props}
     />
@@ -59,20 +58,20 @@ export const OpiniometerIcon = ({ src="/Opiniometer.png", alt = 'Icon', size = 3
             src="/Opiniometer.png"
             width={45}
             height={45}
-            className="hidden md:block"
+            className="md:block"
             alt="Screenshots of the dashboard project showing desktop version"
         {...props}
     />
   )
 }
  
-export const TestIcon = ({ src="/DumbJared-glossary.png", alt = 'Icon', size = 32, className= '', ...props }) => {
+export const TestIcon = ({ src="/glossary.png", alt = 'Icon', size = 32, className= '', ...props }) => {
   return (
     <Image
-            src="/DumbJared-glossary.png"
+            src="/glossary.png"
             width={45}
             height={45}
-            className="hidden md:block"
+            className="md:block"
             alt="Test"
         {...props}
     />
