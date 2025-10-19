@@ -2,18 +2,18 @@ import Image from "next/image"
 
 
 type Team = {
-  name: string;
+  entry: string;
 };
 
 export default async function Page() {
-      const response = await fetch('http://backend:8000/glossary');
+      const response = await fetch('http://backend:8000/glossary', {cache: 'no-store'});
  const teams: Team[] = await response.json ();
 
   return (
     <div>
-      <div className=" bg-red-100">
-        <h1 className=" text-7xl absolute top-16 left-110 ">Stupid Dumb Fetched Glossary</h1>
-        <h2 className=" text-4xl absolute top-34 left-110 ">But Tanner, isnt it static text? "Yes, but what if I want to change it?"</h2>
+      <div className=" bg-red-100 p-5 rounded-md">
+        <h1 className=" text-7xl absolute top-20 left-115 ">Stupid Dumb Fetched Glossary</h1>
+        <h2 className=" text-4xl absolute top-38 left-115 ">But Tanner isnt it static text? &quot;Yes, but what if I want to change it?&quot;</h2>
         <Image
           src="/Dumbjared-glossary.png"
           alt="DumbJared"
@@ -24,8 +24,8 @@ export default async function Page() {
       </div>
         <div className="text-4xl my-12 relative mb-52">
           <ul className="list-disc space-y-4 pl-5">
-              {teams.map((team, index) => (
-              <li key={`${team.name}-${index}`}>{team.name}</li>
+              {teams.map((def, index) => (
+              <li key={`${def.entry}-${index}`}>{def.entry}</li>
               ))}
           </ul>
         </div>
