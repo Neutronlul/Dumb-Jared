@@ -19,7 +19,7 @@ env = environ.FileAwareEnv(
     SECRET_KEY=(str, "django-insecure-w%cnz*4tp3@3scc98&8d)gred3$$p)_hgxpe492$$i^6&9_a=b"),
     DEBUG=(bool, False),
     ALLOWED_HOSTS=(list, ["backend"]),
-    TIME_ZONE=(str, "UTC"),
+    TZ=(str, "UTC"),
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
