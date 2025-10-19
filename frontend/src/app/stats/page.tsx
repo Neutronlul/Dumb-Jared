@@ -3,13 +3,13 @@ import apifact from "../lib/APIstuff/API-text";
 import RBG from "../lib/background";
 import React from 'react'
 
-type TeamListProps = {
-  endpoint?: string;
+type Team = {
+  name: string;
 };
 
-export default async function Page({ endpoint = 'backend:8000/teams',}: TeamListProps) {
-      const response = await fetch(endpoint, {cache: 'no-store'});
- const teams: string[] = await response.json ();
+export default async function Page() {
+      const response = await fetch('http://backend:8000/teams', {cache: 'no-store'});
+ const teams: Team[] = await response.json ();
 
     return (
     <div className= "flex min-h-screen min-w-screen">
@@ -29,11 +29,11 @@ export default async function Page({ endpoint = 'backend:8000/teams',}: TeamList
             {/*Past teams lists*/}
             <div className="flex-1">
                 <div className="items-center justify-end relative top-45">  
-                        <ul className="list-disc pl-5">
-                        {teams.map((team) => (
-                            <li key={team}>{team}</li>
-                        ))}
-                        </ul>
+                           <ul className="list-disc pl-5">
+                            {teams.map((team, index) => (
+                                <li key={`${team.name}-${index}`}>{team.name}</li>
+                            ))}
+                            </ul>
                     <button className="text-2xl relative left-75 top-9"> test button </button>
                     <h1 className="text-4xl font-bold ">Past Trivia Teams</h1> 
                 </div>

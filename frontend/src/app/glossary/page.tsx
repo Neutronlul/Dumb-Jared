@@ -1,11 +1,18 @@
 import Image from "next/image"
 
 
-export default function loop() {
+type Team = {
+  name: string;
+};
+
+export default async function Page() {
+      const response = await fetch('http://backend:8000/teams');
+ const teams: Team[] = await response.json ();
+
   return (
     <div>
-        <h1 className="text-7xl absolute top-16 left-110">Stupid Dumb Fetched Glossary</h1>
-        <h2 className="text-4xl absolute top-32 left-110">But Tanner isnt it static text? Yes, but what if I want to change it?</h2>
+        <h1 className="text-7xl absolute top-16 left-110 ">Stupid Dumb Fetched Glossary</h1>
+        <h2 className="text-4xl absolute top-34 left-110">But Tanner, isnt it static text? "Yes, but what if I want to change it?"</h2>
         <Image
           src="/Dumbjared-glossary.png"
           alt="DumbJared"
@@ -14,13 +21,12 @@ export default function loop() {
           className="z-0 flex rotate-8 justify-start"
 />
 
-        <div className="text-2xl my-8 relative">
-        <li className="my-3">1</li>
-         <li className="my-3">1</li>
-          <li className="my-3">1</li>
-           <li className="my-3">1</li>
-            <li className="my-3">1</li>
-             <li className="my-3">1</li>
+        <div className="text-4xl my-12 relative mb-52">
+          <ul className="list-disc space-y-4 pl-5">
+              {teams.map((team, index) => (
+              <li key={`${team.name}-${index}`}>{team.name}</li>
+              ))}
+          </ul>
         </div>
    </div>
   );
