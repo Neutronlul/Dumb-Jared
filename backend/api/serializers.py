@@ -8,6 +8,10 @@ class TeamSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['name']
 
 class GlossarySerializer(serializers.HyperlinkedModelSerializer):
+    entry = serializers.SerializerMethodField()
     class Meta:
         model = Glossary
-        fields = ['acronym', 'definition']
+        fields = ['entry']
+
+    def get_entry(self, obj):
+        return f"{obj.acronym} | {obj.definition}"
