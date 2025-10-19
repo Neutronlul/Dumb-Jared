@@ -39,6 +39,7 @@ class UserViewSet(viewsets.ModelViewSet):
 router = routers.DefaultRouter()
 router.register(r"users", UserViewSet)
 router.register(r"teams", views.TeamViewSet)
+router.register(r"glossary", views.GlossaryViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
