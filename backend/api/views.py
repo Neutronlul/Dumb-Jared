@@ -11,3 +11,5 @@ class TeamViewSet(viewsets.ModelViewSet):
 class GlossaryViewSet(viewsets.ModelViewSet):
     queryset = Glossary.objects.all()
     serializer_class = GlossarySerializer
+
+    
