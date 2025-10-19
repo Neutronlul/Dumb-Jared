@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="max-w-screen mx-auto w-full md:w-64 ">
         <Navbar />
       </div>
-      <div className="mt-8 md:mt-4 mr-2 mb-4 w-full max-h-screen overflow-hidden bg-orange-200 rounded-md flex-grow p-4 md:p-12">{children}</div>
+      <div className="mt-8 md:mt-4 mr-2 mb-4 w-full z-0 max-h-screen overflow-hidden bg-orange-200 rounded-md flex-grow p-4 md:p-12">{children}</div>
     </div>
   );
 }

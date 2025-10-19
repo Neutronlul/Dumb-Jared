@@ -25,9 +25,9 @@ export default async function Page() {
             </div>
 
             {/*mobile header*/}
-            
-                <h1 className="block md:hidden bg-orange-200 text-2xl absolute top-25.5 left-2.5 md:top-20 md:left-115 mr-2 ml-2 rounded-md">Statistics</h1>
-            
+            <div className="md:hidden block">
+                <h1 className="border-orange-300 text-2xl top-[182] pl-2 pr-2 absolute bg-linear-to-br from-yellow-200 to-pink-500 rounded-md text-center items-center overflow-hidden">Statistics</h1>
+            </div>
 
 
             {/*Past teams lists*/}

@@ -26,10 +26,10 @@ export const HomeIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, classN
   )
 }
  
-export const StatsIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, className= '', ...props }) => {
+export const StatsIcon = ({ src="/Stats.png", alt = 'Icon', size = 32, className= '', ...props }) => {
   return (
     <Image
-            src="/Dumbjared.png"
+            src="/Stats.png"
             width={45}
             height={45}
             className="md:block"
@@ -39,10 +39,10 @@ export const StatsIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, class
   )
 }
  
-export const ChartsIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, className= '', ...props }) => {
+export const ChartsIcon = ({ src="/Charts.png", alt = 'Icon', size = 32, className= '', ...props }) => {
   return (
     <Image
-            src="/Dumbjared.png"
+            src="/Charts.png"
             width={45}
             height={45}
             className="md:block"

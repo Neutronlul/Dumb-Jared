@@ -20,7 +20,7 @@ export default async function Page() {
 
   <div className="flex flex-col md:flex-row md:overflow-hidden">
         {/*Navbar rendering*/}
-        <div className="max-w-screen max-h-screen mx-auto w-full not-last:md:w-64">
+        <div className="max-w-screen max-h-screen mx-auto w-full md:mr-2 not-last:md:w-64">
           <Navbar />
         </div>
 
@@ -31,7 +31,7 @@ export default async function Page() {
 
         {/*Team list right*/}
         <div className="md:mt-4 mt-1">
-          <h1 className="mb-1 bg-orange-300 p-2 mr-2 py-4 rounded-xl text-4xl font-bold">This weeks Trivia Teams 9/99/9999</h1> {items}
+          <h1 className="mb-1 bg-orange-300 p-2 mr-2 py-4 rounded-xl text-3xl md:text-4xl font-bold text-center">This weeks Trivia Teams 9/99/9999</h1> {items}
         </div>
 
         {/*Main home page elements*/}
