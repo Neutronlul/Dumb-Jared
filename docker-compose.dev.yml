@@ -5,9 +5,9 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    depends_on:
-      backend:
-        condition: service_started
+    # depends_on:
+    #   backend:
+    #     condition: service_started
     develop:
       watch:
         - action: sync
@@ -49,7 +49,7 @@ services:
   database:
     image: postgres:latest
     volumes:
-      - ./backend/.database:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -78,6 +78,6 @@ services:
   #   environment:
   #     - DISABLE_ANALYTICS=true
 
-# volumes:
-#   # postgres_data:
+volumes:
+  postgres_data:
   
