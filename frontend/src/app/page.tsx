@@ -37,7 +37,7 @@ export default async function Page() {
 
         {/*Main home page elements*/}
         <div>
-          <h1 className="text-2xl"> test text</h1>
+          <h1 className="text-2xl">  text</h1>
         </div>
 </div>
     

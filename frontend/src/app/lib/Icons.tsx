@@ -1,4 +1,3 @@
-import { Icons } from 'next/dist/lib/metadata/types/metadata-types';
 import Image from 'next/image';
 
 export const MainIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, className= '', ...props }) => {
@@ -48,7 +47,7 @@ export const ChartsIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, clas
             width={45}
             height={45}
             className="hidden md:block"
-            alt="Screenshots of the dashboard project showing desktop version"
+            alt="Icon"
         {...props}
     />
   )
@@ -74,7 +73,7 @@ export const TestIcon = ({ src="/DumbJared-glossary.png", alt = 'Icon', size = 3
             width={45}
             height={45}
             className="hidden md:block"
-            alt="Screenshots of the dashboard project showing desktop version"
+            alt="Test"
         {...props}
     />
   )
