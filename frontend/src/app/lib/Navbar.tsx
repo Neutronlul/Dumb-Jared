@@ -3,8 +3,8 @@ import NavLinks from '@/app/lib/nav-links';
 
 export default function Navbar() {
   return (
-    <div className=" flex h-full flex-col px-3 py-4 md:px-2 p-1 w-full md:w-54">
-      <div className=" relative bg-orange-200 rounded-md mb-2 p-1 items-center flex justify-center ">
+    <div className=" flex h-full flex-col pt-4 md:px-2 w-full md:w-54">
+      <div className=" relative mx-2 md:mx-0 bg-orange-200 rounded-md mb-2 p-1 items-center flex justify-center ">
         <Image
           src="/Dumbjared.png"
           alt="DumbJared"
@@ -26,9 +26,9 @@ export default function Navbar() {
           height={95}
           className="z-0 rotate-25 relative right-1/48 md:hidden block"/>
       </div>
-      <div className="w-auto flex grow flex-row md:justify-between md:ml-0 ml-2 space-x-2 md:flex-col md:space-x-0 md:space-y-2">
+        <div className="w-auto flex grow flex-row md:justify-between md:ml-0 ml-2 space-x-2 md:flex-col md:space-x-0 md:space-y-2">
         <NavLinks />
-        <div className="hidden h-auto w-full grow rounded-md border bg-linear-to-br from-yellow-200 to-pink-500 border-orange-300 md:block "></div>
+        <div className="hidden w-full grow rounded-md border bg-linear-to-br from-yellow-200 to-pink-500 border-orange-300 md:block "></div>
       </div>
     </div>
   );

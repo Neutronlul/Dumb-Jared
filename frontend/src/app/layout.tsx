@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.className} ${geistMono.className} ${honk.className} antialiased`}
+        className={`${geistSans.className} ${geistMono.className} ${honk.className} z-[-2] h-screen antialiased md:overflow-hidden`}
       >
         {children}
       </body>

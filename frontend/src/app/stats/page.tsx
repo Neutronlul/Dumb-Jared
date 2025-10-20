@@ -35,7 +35,7 @@ export default async function Page() {
                 <div className="items-center justify-end relative top-45">  
                            <ul className="list-disc pl-5">
                             {teams.map((team, index) => (
-                                <li key={`${team.name}-${index}`}>{team.name}</li>
+                                <li key={`${team.name}-${index}`}>{team.name.length > 50 ? team.name.slice(0, 50) + "..." : team.name}</li>
                             ))}
                             </ul>
                     <button className="text-2xl relative left-75 top-9"> test button </button>

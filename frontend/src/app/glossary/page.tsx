@@ -19,7 +19,7 @@ export default async function Page() {
           alt="DumbJared"
           width={180}
           height={160}
-          className="z-0 hidden md:flex rotate-8 relative"/>
+          className="z-0 hidden md:flex rotate-8 relative scale-x-[-1]"/>
       </div>
 
       {/*Mobile only title*/}
