@@ -1,4 +1,4 @@
-
+import Image from 'next/image'
 import React from 'react'
 
 type Team = {
@@ -12,11 +12,23 @@ export default async function Page() {
     return (
     <div className= "flex min-h-screen min-w-screen">
             <div className="flex-1">
-            {/*Most valuable opinion spot*/} 
-                <h1 className="w-20 bg-linear-to-br from-yellow-200 to-pink-500 rounded-xl pl-2 border-1 border-orange-300 text-4xl antialiased font-bold items-center z-10">MVP</h1>
-
+                                <h1 className="w-20 bg-linear-to-br from-yellow-200 to-pink-500 rounded-xl pl-2 border-1 border-orange-300 text-5xl antialiased font-bold items-center z-10">MVP</h1>
+            {/*Most valuable opinion spot*/}
+                  <Image
+                      src="/MVPicon.png"
+                      alt="MVPicon"
+                      width={95}
+                      height={95}
+                      className="z-0 relative right-1/48"/>
+            <div>
             {/*Least valuable opinion spot*/} 
-                <h1 className="w-20 bg-linear-to-br from-yellow-200 to-pink-500 rounded-xl pl-2 border-1 border-orange-300 text-4xl antialiased font-bold items-center z-10">LVP</h1>
+                <h1 className="w-20 bg-linear-to-br from-yellow-200 to-pink-500 rounded-xl pl-2 border-1 border-orange-300 text-5xl antialiased font-bold items-center z-10">LVP</h1>
+                                  <Image
+                      src="/LVPicon.png"
+                      alt="LVPicon"
+                      width={95}
+                      height={95}
+                      className="z-0 relative right-1/48"/>
                 <h2 className="antialiased text-3xl pl-4 py-3">Karl</h2>
             {/*Last teams list*/} 
                 <div className="pt-5">
@@ -47,6 +59,7 @@ export default async function Page() {
                 </div>
             </div>                     
     </div>
+</div>
     );
 };
 

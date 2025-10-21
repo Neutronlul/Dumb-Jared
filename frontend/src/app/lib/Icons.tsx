@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 
 export const MainIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, className= '', ...props }) => {
@@ -11,7 +12,6 @@ export const MainIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, classN
     />
   )
 }
- 
 
 export const HomeIcon = ({ src="/DumbJared.png", alt = 'Icon', size = 32, className= '', ...props }) => {
   return (
