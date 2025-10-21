@@ -1,14 +1,14 @@
 services:
   frontend:
+    extends:
+      file: compose.common.yaml
+      service: frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
       target: dev
     ports:
       - "3000:3000"
-    # depends_on:
-    #   backend:
-    #     condition: service_started
     develop:
       watch:
         - action: sync
@@ -16,24 +16,28 @@ services:
           target: /app
           initial_sync: true
         - action: rebuild
-          path: ./frontend/package.json
+          path: ./frontend/package-lock.json
+    healthcheck:
+      interval: 30s
+      start_interval: 1s
 
   backend:
+    extends:
+      file: compose.common.yaml
+      service: backend
     build:
       context: ./backend
       dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8000
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
       - DEBUG=true
       - ALLOWED_HOSTS=backend,localhost
-      - TZ=America/Los_Angeles
+      - POSTGRES_PASSWORD=postgres
     ports:
       - "8000:8000"
-    # healthcheck: # TODO: NO CURL IN CONTAINER
-    #   test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+    healthcheck:
+      interval: 30s
+      start_interval: 1s
     develop:
       watch:
         - action: sync
@@ -42,23 +46,15 @@ services:
           initial_sync: true
         - action: rebuild
           path: ./backend/uv.lock
-    depends_on:
-      database:
-        condition: service_healthy
 
   database:
-    image: postgres:latest
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+    extends:
+      file: compose.common.yaml
+      service: database
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U postgres -d postgres"]
-      interval: 10s
-      timeout: 5s
-      start_period: 1m
+      interval: 30s
       start_interval: 1s
 
   # pgui:
@@ -81,4 +77,3 @@ services:
 
 volumes:
   postgres_data:
-  

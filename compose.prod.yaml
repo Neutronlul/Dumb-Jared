@@ -1,0 +1,81 @@
+services:
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    depends_on:
+      frontend:
+        condition: service_healthy
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN_FILE=/run/secrets/dumbjared_cloudflared_token
+      - TUNNEL_METRICS=localhost:60123   
+      - NO_AUTOUPDATE=true
+    secrets:
+      - dumbjared_cloudflared_token
+    networks:
+      - ingress
+    healthcheck:
+      test: ["CMD", "cloudflared", "tunnel", "--metrics", "localhost:60123", "ready"]
+      interval: 20s
+      timeout: 5s
+      start_period: 30s
+      start_interval: 3s
+
+  frontend:
+    extends:
+      file: compose.common.yaml
+      service: frontend
+    image: neutronlul/dumbjared-frontend:latest
+    networks:
+      - internal
+      - ingress
+    healthcheck:
+      interval: 20s
+      start_interval: 5s
+
+  backend:
+    extends:
+      file: compose.common.yaml
+      service: backend
+    image: neutronlul/dumbjared-backend:latest
+    environment:
+      - SECRET_KEY_FILE=/run/secrets/dumbjared_backend_key
+      - POSTGRES_PASSWORD_FILE=/run/secrets/dumbjared_postgres_password
+    secrets:
+      - dumbjared_backend_key
+      - dumbjared_postgres_password
+    networks:
+      - internal
+    healthcheck:
+      interval: 20s
+      start_interval: 5s
+
+  database:
+    extends:
+      file: compose.common.yaml
+      service: database
+    environment:
+      - POSTGRES_PASSWORD_FILE=/run/secrets/dumbjared_postgres_password
+    secrets:
+      - dumbjared_postgres_password
+    networks:
+      - internal
+    healthcheck:
+      interval: 20s
+      start_interval: 5s
+
+volumes:
+  postgres_data:
+
+networks:
+  internal:
+    driver: overlay
+  ingress:
+    driver: overlay
+
+secrets:
+  dumbjared_cloudflared_token:
+    external: true
+  dumbjared_backend_key:
+    external: true
+  dumbjared_postgres_password:
+    external: true
