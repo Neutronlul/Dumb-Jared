@@ -14,17 +14,11 @@ export default async function Page() {
       <div className="  hidden md:block border-orange-300 bg-linear-to-br from-yellow-200 to-pink-500 p-5 rounded-md">
         <h1 className="  md:text-7xl justiyfy-left items-center md:top-20 md:left-115 md:pr-0 md:pl-0">Stupid Dumb Fetched Glossary</h1>
         <h2 className="  md:text-4xl justiyfy-left md:top-38 md:left-115 ">But Tanner isnt it static text? &quot;Yes, but what if I want to change it?&quot;</h2>
-        <Image
-          src="/dumbjaredglossary.png"
-          alt="DumbJared"
-          width={180}
-          height={160}
-          className="z-0 hidden md:flex rotate-8 relative scale-x-[-1]"/>
       </div>
 
       {/*Mobile only title*/}
       <div className="md:hidden block">
-        <h1 className="border-orange-300 text-2xl top-[182] pl-2 pr-2 absolute bg-linear-to-br from-yellow-200 to-pink-500 rounded-md text-center ">Stupid Dumb Fetched Glossary</h1>
+        <h1 className="border-orange-300 text-2xl top-[182] pl-2 pr-2 absolute bg-linear-to-br items-center from-yellow-200 to-pink-500 rounded-md text-center ">Stupid Dumb Fetched Glossary</h1>
       </div>
 
 

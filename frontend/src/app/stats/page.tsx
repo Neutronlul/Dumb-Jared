@@ -20,7 +20,7 @@ export default async function Page() {
                 <h2 className="antialiased text-3xl pl-4 py-3">Karl</h2>
             {/*Last teams list*/} 
                 <div className="pt-5">
-                    <h1 className="text-4xl font-bold">Last Week Trivia Teams</h1> 
+                    <h1 className=" relative text-4xl font-bold">Last Week Trivia Teams</h1> 
                 </div>
             </div>
 
@@ -30,19 +30,22 @@ export default async function Page() {
             </div>
 
 
-            {/*Past teams lists*/}
-            <div className="flex-1">
+            {/*Past teams lists desktop*/}
+            <div className="flex-1 md:block hidden">
                 <div className="items-center justify-end relative top-45">  
-                           <ul className="list-disc pl-5">
-                            {teams.map((team, index) => (
-                                <li key={`${team.name}-${index}`}>{team.name.length > 50 ? team.name.slice(0, 50) + "..." : team.name}</li>
-                            ))}
-                            </ul>
+                           <ul className=" mr-4 py-2 list-none text-3xl space-y-2">{teams.map((team, index) => (<li key={`${team.name}-${index}`} className=" text-3xl px-3 ml-2 bg-linear-to-br from-yellow-200 to-pink-500 rounded-md border-1 border-orange-300">{team.name.length > 18 ? team.name.slice(0, 18) + "..." : team.name}</li>))}</ul>
                     <button className="text-2xl relative left-75 top-9"> test button </button>
                     <h1 className="text-4xl font-bold ">Past Trivia Teams</h1> 
                 </div>
             </div>
-
+            {/*Past teams lists mobile*/}
+            <div className="flex-1 block md:hidden">
+                <div className="items-center justify-start relative top-45">  
+                           <ul className="scrollbar-hide-safe overflow-y-auto max-h-[83.5vh] mr-4 py-2 list-none text-3xl space-y-2">{teams.map((team, index) => (<li key={`${team.name}-${index}`} className=" text-3xl px-3 ml-2 bg-linear-to-br from-yellow-200 to-pink-500 rounded-md border-1 border-orange-300">{team.name.length > 18 ? team.name.slice(0, 18) + "..." : team.name}</li>))}</ul>
+                    <button className="text-2xl relative left-75 top-9"> test button </button>
+                    <h1 className="text-4xl font-bold ">Past Trivia Teams</h1> 
+                </div>
+            </div>                     
     </div>
     );
 };
