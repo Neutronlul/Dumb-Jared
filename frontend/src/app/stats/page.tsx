@@ -32,8 +32,8 @@ export default async function Page() {
 
             {/*Past teams lists desktop*/}
             <div className="flex-1 md:block hidden">
-                <div className="items-center justify-end relative top-45">  
-                           <ul className=" mr-4 py-2 list-none text-3xl space-y-2">{teams.map((team, index) => (<li key={`${team.name}-${index}`} className=" text-3xl px-3 ml-2 bg-linear-to-br from-yellow-200 to-pink-500 rounded-md border-1 border-orange-300">{team.name.length > 18 ? team.name.slice(0, 18) + "..." : team.name}</li>))}</ul>
+                <div className="w-131 items-end relative top-45">  
+                           <ul className=" mr-4 py-2 list-none text-3xl space-y-1">{teams.map((team, index) => (<li key={`${team.name}-${index}`} className=" text-3xl px-3 ml-2 bg-linear-to-br from-yellow-200 to-pink-500 rounded-md border-1 border-orange-300">{team.name.length > 30 ? team.name.slice(0, 30) + "..." : team.name}</li>))}</ul>
                     <button className="text-2xl relative left-75 top-9"> test button </button>
                     <h1 className="text-4xl font-bold ">Past Trivia Teams</h1> 
                 </div>

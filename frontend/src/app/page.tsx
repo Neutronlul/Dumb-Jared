@@ -28,7 +28,7 @@ const response = await fetch('http://backend:8000/teams', {cache: 'no-store'});
         {/*Team list*/}
         <div className=" md:mt-4 mt-1">
           <h1 className="mb-1 ml-2 bg-orange-200 p-2 mr-4 py-4 rounded-md text-3xl md:text-4xl font-bold text-center">This weeks Trivia Teams 9/99/9999</h1> 
-            <ul className="scrollbar-hide-safe md:overflow-y-auto max-h-[83.5vh] mr-4 py-2 list-decimal text-3xl space-y-2">{teams.map((team, index) => (<li key={`${team.name}-${index}`} className=" text-3xl px-3 ml-2 bg-linear-to-br from-yellow-200 to-pink-500 rounded-md border-1 border-orange-300">{team.name.length > 18 ? team.name.slice(0, 18) + "..." : team.name}</li>))}</ul>
+            <ul className="scrollbar-hide-safe md:overflow-y-auto max-h-[83.5vh] mr-4 py-2 list-decimal text-3xl space-y-1">{teams.map((team, index) => (<li key={`${team.name}-${index}`} className=" text-3xl px-3 ml-2 bg-linear-to-br from-yellow-200 to-pink-500 rounded-md border-1 border-orange-300">{team.name.length > 18 ? team.name.slice(0, 18) + "..." : team.name}</li>))}</ul>
         </div>
 
 </div>

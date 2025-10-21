@@ -12,8 +12,8 @@ export default async function Page() {
   return (
     <div>
       <div className="  hidden md:block border-orange-300 bg-linear-to-br from-yellow-200 to-pink-500 p-5 rounded-md">
-        <h1 className="  md:text-7xl justiyfy-left items-center md:top-20 md:left-115 md:pr-0 md:pl-0">Stupid Dumb Fetched Glossary</h1>
-        <h2 className="  md:text-4xl justiyfy-left md:top-38 md:left-115 ">But Tanner isnt it static text? &quot;Yes, but what if I want to change it?&quot;</h2>
+        <h1 className="  md:text-7xl justify-left items-center md:top-20 md:left-115 md:pr-0 md:pl-0">Stupid Dumb Fetched Glossary</h1>
+        <h2 className="  md:text-4xl justify-left md:top-38 md:left-115 ">But Tanner isnt it static text? &quot;Yes, but what if I want to change it?&quot;</h2>
       </div>
 
       {/*Mobile only title*/}
