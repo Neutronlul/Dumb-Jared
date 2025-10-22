@@ -21,9 +21,6 @@ services:
       start_interval: 3s
 
   frontend:
-    extends:
-      file: compose.common.yaml
-      service: frontend
     image: neutronlul/dumbjared-frontend:latest
     networks:
       - internal
@@ -33,9 +30,6 @@ services:
       start_interval: 5s
 
   backend:
-    extends:
-      file: compose.common.yaml
-      service: backend
     image: neutronlul/dumbjared-backend:latest
     environment:
       - SECRET_KEY_FILE=/run/secrets/dumbjared_backend_key
@@ -50,9 +44,6 @@ services:
       start_interval: 5s
 
   database:
-    extends:
-      file: compose.common.yaml
-      service: database
     environment:
       - POSTGRES_PASSWORD_FILE=/run/secrets/dumbjared_postgres_password
     secrets:

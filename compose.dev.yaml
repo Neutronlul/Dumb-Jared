@@ -1,8 +1,5 @@
 services:
   frontend:
-    extends:
-      file: compose.common.yaml
-      service: frontend
     build:
       context: ./frontend
       dockerfile: Dockerfile
@@ -22,9 +19,6 @@ services:
       start_interval: 1s
 
   backend:
-    extends:
-      file: compose.common.yaml
-      service: backend
     build:
       context: ./backend
       dockerfile: Dockerfile
@@ -48,9 +42,6 @@ services:
           path: ./backend/uv.lock
 
   database:
-    extends:
-      file: compose.common.yaml
-      service: database
     environment:
       - POSTGRES_PASSWORD=postgres
     healthcheck:
