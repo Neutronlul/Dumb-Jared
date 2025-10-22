@@ -44,12 +44,7 @@ EXPOSE 3000
 
 ENV PORT=3000
 
-CMD \
-  if [ -f yarn.lock ]; then yarn dev; \
-  elif [ -f package-lock.json ]; then npm run dev; \
-  elif [ -f pnpm-lock.yaml ]; then pnpm dev; \
-  else npm run dev; \
-  fi
+CMD [ "npm", "run", "dev" ]
 
 
 # Rebuild the source code only when needed (only for production)
@@ -101,4 +96,4 @@ ENV PORT=3000
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/config/next-config-js/output
 ENV HOSTNAME="frontend"
-CMD ["node", "server.js"]
+CMD [ "node", "server.js" ]
