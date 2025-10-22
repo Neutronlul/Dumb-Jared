@@ -1,7 +1,7 @@
 services:
   frontend:
     healthcheck:
-      test: [ "CMD", "wget", "--spider", "--quiet", "http://localhost:3000" ]
+      test: [ "CMD", "wget", "--spider", "--quiet", "http://127.0.0.1:3000" ]
       timeout: 5s
       start_period: 30s
 
