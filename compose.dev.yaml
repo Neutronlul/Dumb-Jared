@@ -4,6 +4,9 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
       target: dev
+    depends_on:
+      backend:
+        condition: service_healthy
     ports:
       - "3000:3000"
     develop:
@@ -23,6 +26,9 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      database:
+        condition: service_healthy
     environment:
       - DEBUG=true
       - ALLOWED_HOSTS=backend,localhost
