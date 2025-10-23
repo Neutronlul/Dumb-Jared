@@ -24,6 +24,13 @@ export default function TestPage() {
     { name: "6", value: 28 },
     { name: "7", value: 35 },
     { name: "8", value: 40 },
+    { name: "9", value: 40 },
+    { name: "10", value: 45 },
+    { name: "11", value: 50 },
+    { name: "12", value: 55 },
+    { name: "13", value: 60 },
+    { name: "14", value: 65 },
+    { name: "15", value: 70 },
   ];
 
   return (

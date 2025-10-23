@@ -22,10 +22,22 @@ export default function NumberGraph({ data }: { data: { name: string; value: num
                 offset={1}        
                 style={{ textAnchor: "middle", fontWeight: "bold", fontSize: 20 }}/>
             </YAxis>
-          <Tooltip />
+            <Tooltip content={<CustomTooltip />} />
           <Line type="linear" dataKey="value" stroke="#f97316" strokeWidth={3} dot={true} />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
 }
+
+const CustomTooltip = ({ active, payload, label }: any) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="bg-linear-to-br border-orange-200 border from-yellow-200 to-pink-500 px-3 rounded-md">
+        <p className="text-2xl mb-1">{label}</p>
+        <p className="">Score: {payload[0].value}</p>
+      </div>
+    );
+  }
+  return null;
+};
