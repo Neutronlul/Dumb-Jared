@@ -23,6 +23,8 @@ services:
     image: neutronlul/dumbjared-frontend:latest
     depends_on:
       - backend
+    ports:
+      - 3000:3000
     networks:
       - internal
       - ingress
@@ -31,17 +33,38 @@ services:
       start_interval: 5s
 
   backend:
+    image: nginxinc/nginx-unprivileged:latest
+    depends_on:
+      - django
+    volumes:
+      - unixsocket:/run/gunicorn.sock
+    configs:
+      - source: nginx_config
+        target: /etc/nginx/nginx.conf
+        mode: 0440
+    networks:
+      - internal
+    healthcheck:
+      test: ["CMD", "service", "nginx", "status"]
+      interval: 20s
+      timeout: 5s
+      start_period: 30s
+      start_interval: 5s
+
+  django:
     image: neutronlul/dumbjared-backend:latest
     depends_on:
       - database
     environment:
       - SECRET_KEY_FILE=/run/secrets/dumbjared_backend_key
       - POSTGRES_PASSWORD_FILE=/run/secrets/dumbjared_postgres_password
+    volumes:
+      - unixsocket:/run/gunicorn.sock
     secrets:
       - dumbjared_backend_key
       - dumbjared_postgres_password
     networks:
-      - internal
+      - database
     healthcheck:
       interval: 20s
       start_interval: 5s
@@ -52,19 +75,26 @@ services:
     secrets:
       - dumbjared_postgres_password
     networks:
-      - internal
+      - database
     healthcheck:
       interval: 20s
       start_interval: 5s
 
 volumes:
   postgres_data:
+  unixsocket:
 
 networks:
-  internal:
-    driver: overlay
   ingress:
     driver: overlay
+  internal:
+    driver: overlay
+  database:
+    driver: overlay
+
+configs:
+  nginx_config:
+    file: ./nginx.conf
 
 secrets:
   dumbjared_cloudflared_token:
