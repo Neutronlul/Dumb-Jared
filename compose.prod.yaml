@@ -37,7 +37,7 @@ services:
     depends_on:
       - django
     volumes:
-      - unixsocket:/run/gunicorn.sock
+      - unixsocket:/run/sockets/
     configs:
       - source: nginx_config
         target: /etc/nginx/nginx.conf
@@ -59,7 +59,7 @@ services:
       - SECRET_KEY_FILE=/run/secrets/dumbjared_backend_key
       - POSTGRES_PASSWORD_FILE=/run/secrets/dumbjared_postgres_password
     volumes:
-      - unixsocket:/run/gunicorn.sock
+      - unixsocket:/run/socket/
     secrets:
       - dumbjared_backend_key
       - dumbjared_postgres_password
