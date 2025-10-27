@@ -41,7 +41,7 @@ services:
     configs:
       - source: nginx_config
         target: /etc/nginx/nginx.conf
-        mode: 0440
+        mode: 0444
     networks:
       - internal
     healthcheck:
