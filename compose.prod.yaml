@@ -37,11 +37,13 @@ services:
     depends_on:
       - django
     volumes:
-      - unixsocket:/run/sockets/
+      - unixsocket:/run/sockets/:ro
     configs:
       - source: nginx_config
         target: /etc/nginx/nginx.conf
-        mode: 0444
+        uid: "101"
+        gid: "101"
+        mode: 0400
     networks:
       - internal
     healthcheck:
@@ -59,7 +61,7 @@ services:
       - SECRET_KEY_FILE=/run/secrets/dumbjared_backend_key
       - POSTGRES_PASSWORD_FILE=/run/secrets/dumbjared_postgres_password
     volumes:
-      - unixsocket:/run/socket/
+      - unixsocket:/app/socket/
     secrets:
       - dumbjared_backend_key
       - dumbjared_postgres_password
