@@ -9,6 +9,11 @@ changelog:
     - title: Miscellaneous
       labels:
         - "*"
+      exclude:
+        labels:
+          - frontend
+          - backend
+          - dependencies
     - title: Dependency Updates
       labels:
         - dependencies
