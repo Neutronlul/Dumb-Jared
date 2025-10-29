@@ -1,11 +1,11 @@
 changelog:
   categories:
-    - title: "What's Changed"
+    - title: Frontend
       labels:
-        - '*'
-      exclude:
-        labels:
-          - dependencies
-    - title: "Dependency Updates"
+        - frontend
+    - title: Backend
+      labels:
+        - backend
+    - title: Dependency Updates
       labels:
         - dependencies
