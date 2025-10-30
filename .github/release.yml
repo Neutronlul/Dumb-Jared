@@ -3,9 +3,15 @@ changelog:
     - title: Frontend
       labels:
         - frontend
+      exclude:
+        labels:
+          - chore
     - title: Backend
       labels:
         - backend
+      exclude:
+        labels:
+          - chore
     - title: Miscellaneous
       labels:
         - "*"
@@ -17,3 +23,6 @@ changelog:
     - title: Dependency Updates
       labels:
         - dependencies
+      exclude:
+        labels:
+          - chore
