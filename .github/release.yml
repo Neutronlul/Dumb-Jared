@@ -7,7 +7,7 @@ changelog:
         labels:
           - chore
         authors:
-          - dependabot
+          - dependabot[bot]
     - title: Backend
       labels:
         - backend
@@ -15,13 +15,13 @@ changelog:
         labels:
           - chore
         authors:
-          - dependabot
+          - dependabot[bot]
     - title: Miscellaneous
       labels:
         - "*"
       exclude:
         authors:
-          - dependabot
+          - dependabot[bot]
     - title: Dependency Updates
       labels:
         - dependencies
