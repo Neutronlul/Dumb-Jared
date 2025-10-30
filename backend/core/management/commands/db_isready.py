@@ -1,12 +1,9 @@
-import logging, sys
+import sys
 
 from django.conf import settings
 from django.db import DEFAULT_DB_ALIAS, DatabaseError, connections
 from django.db.migrations.executor import MigrationExecutor
 from django.core.management.base import BaseCommand
-
-
-logger = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
