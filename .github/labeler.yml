@@ -2,6 +2,10 @@ backend:
 - changed-files:
   - any-glob-to-any-file: backend/**
 
+dependencies:
+- changed-files:
+  - any-glob-to-any-file: ['**/pyproject.toml', '**/uv.lock', '**/package.json', '**/package-lock.json']
+
 docker:
 - changed-files:
   - any-glob-to-any-file: ['**/Dockerfile', '**/compose*.yaml', '**/.dockerignore']
