@@ -22,9 +22,7 @@ services:
   frontend:
     image: neutronlul/dumbjared-frontend:latest
     depends_on:
-      - backend
-    ports:
-      - 3000:3000
+      - nginx
     networks:
       - internal
       - ingress
@@ -32,10 +30,10 @@ services:
       interval: 20s
       start_interval: 5s
 
-  backend:
+  nginx:
     image: nginxinc/nginx-unprivileged:latest
     depends_on:
-      - django
+      - backend
     volumes:
       - unixsocket:/run/sockets/:ro
     configs:
@@ -53,7 +51,7 @@ services:
       start_period: 30s
       start_interval: 5s
 
-  django:
+  backend:
     image: neutronlul/dumbjared-backend:latest
     depends_on:
       - database

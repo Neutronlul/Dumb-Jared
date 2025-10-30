@@ -5,7 +5,7 @@ services:
       timeout: 5s
       start_period: 30s
 
-  django:
+  backend:
     environment:
       - TZ=America/Los_Angeles
     healthcheck:

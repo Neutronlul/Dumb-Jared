@@ -66,6 +66,7 @@ THIRD_PARTY_APPS = [
 SELF_APPS = [
     "api",
     "scraper",
+    "core",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + SELF_APPS

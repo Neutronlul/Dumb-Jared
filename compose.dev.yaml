@@ -25,7 +25,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    command: python manage.py runserver 0.0.0.0:8000
+      target: dev
     depends_on:
       database:
         condition: service_healthy
@@ -33,6 +33,7 @@ services:
       - DEBUG=true
       - ALLOWED_HOSTS=backend,localhost
       - POSTGRES_PASSWORD=postgres
+      - DJANGO_SUPERUSER_PASSWORD=admin
     ports:
       - "8000:8000"
     healthcheck:
