@@ -1,0 +1,27 @@
+backend:
+- changed-files:
+  - any-glob-to-any-file: backend/**
+
+docker:
+- changed-files:
+  - any-glob-to-any-file: ['**/Dockerfile', '**/compose*.yaml', '**/.dockerignore']
+
+documentation:
+- changed-files:
+  - any-glob-to-any-file: '**/*.md'
+
+frontend:
+- changed-files:
+  - any-glob-to-any-file: frontend/**
+
+github_actions:
+- changed-files:
+  - any-glob-to-any-file: '.github/workflows/**'
+
+javascript:
+- changed-files:
+  - any-glob-to-any-file: ['**/*.js', '**/*.ts', '**/*.tsx']
+
+python:
+- changed-files:
+  - any-glob-to-any-file: '**/*.py'
