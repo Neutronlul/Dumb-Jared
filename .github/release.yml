@@ -6,18 +6,22 @@ changelog:
       exclude:
         labels:
           - chore
+        authors:
+          - @Dependabot
     - title: Backend
       labels:
         - backend
       exclude:
         labels:
           - chore
+        authors:
+          - @Dependabot
     - title: Miscellaneous
       labels:
         - "*"
       exclude:
-        labels:
-          - dependencies
+        authors:
+          - @Dependabot
     - title: Dependency Updates
       labels:
         - dependencies
