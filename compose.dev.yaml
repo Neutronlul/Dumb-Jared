@@ -32,7 +32,6 @@ services:
     environment:
       - DEBUG=true
       - ALLOWED_HOSTS=backend,localhost
-      - POSTGRES_PASSWORD=postgres
       - DJANGO_SUPERUSER_PASSWORD=admin
     ports:
       - "8000:8000"

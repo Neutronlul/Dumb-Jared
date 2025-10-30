@@ -36,6 +36,7 @@ services:
       - backend
     volumes:
       - unixsocket:/run/sockets/:ro
+      - static:/static/:ro
     configs:
       - source: nginx_config
         target: /etc/nginx/nginx.conf
@@ -60,6 +61,7 @@ services:
       - POSTGRES_PASSWORD_FILE=/run/secrets/dumbjared_postgres_password
     volumes:
       - unixsocket:/app/socket/
+      - static:/app/static/
     secrets:
       - dumbjared_backend_key
       - dumbjared_postgres_password
@@ -83,6 +85,7 @@ services:
 volumes:
   postgres_data:
   unixsocket:
+  static:
 
 networks:
   ingress:
